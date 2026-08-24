@@ -6,9 +6,8 @@ import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { Portfolio } from "@/components/site/Portfolio";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { heroRenderUrl } from "@/components/site/data";
-import logoAsset from "@/assets/5em-logo.png.asset.json";
 
-const logoUrl = logoAsset.url;
+const logoUrl = "/img/5em-logo.png";
 import { ArrowRight, FileUp, Boxes, Sparkles, Mail, Phone, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/")({
