@@ -6,6 +6,9 @@ import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { Portfolio } from "@/components/site/Portfolio";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { heroRenderUrl } from "@/components/site/data";
+import logoAsset from "@/assets/5em-logo.png.asset.json";
+
+const logoUrl = logoAsset.url;
 import { ArrowRight, FileUp, Boxes, Sparkles, Mail, Phone, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -53,8 +56,8 @@ function Index() {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur">
         <div className="section-shell flex h-16 items-center justify-between">
-          <a href="#top" className="font-display text-lg font-bold tracking-tight">
-            5EM<span className="text-accent"> Solutions</span>
+          <a href="#top" className="flex items-center">
+            <img src={logoUrl} alt="5EM Solutions" width={320} height={110} className="h-9 w-auto" />
           </a>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
             <a className="transition-colors hover:text-foreground" href="#compare">Before / After</a>
@@ -195,9 +198,7 @@ function Index() {
       <footer className="border-t border-border py-14">
         <div className="section-shell flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="font-display text-lg font-bold">
-              5EM<span className="text-accent"> Solutions</span>
-            </p>
+            <img src={logoUrl} alt="5EM Solutions" width={320} height={110} className="h-12 w-auto" />
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">
               Architectural visualization for custom home builders and spec developers.
             </p>
