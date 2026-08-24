@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { UploadCloud, FileText, X } from "lucide-react";
 
-// Paste your Make.com webhook URL here (Webhooks > Custom webhook > Copy address).
-// The scenario editor link is not a submit endpoint.
-const MAKE_WEBHOOK_URL = "";
+// Make.com custom webhook (Webhooks > Custom webhook > Copy address).
+// The scenario editor link is NOT a submit endpoint.
+const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/l2u9aj3n3imr5w394hb8you4lv31ucj6";
 
 const schema = z.object({
   builder: z.string().trim().min(2, "Enter your builder or company name").max(100),
@@ -55,13 +55,27 @@ export function QuoteForm({ onDone }: { onDone?: () => void }) {
     setSubmitting(true);
 
     try {
-      if (MAKE_WEBHOOK_URL) {
-        const payload = new FormData();
-        Object.entries(parsed.data).forEach(([k, v]) => payload.append(k, String(v ?? "")));
-        files.forEach((f, i) => payload.append(`plan_${i + 1}`, f, f.name));
-        const res = await fetch(MAKE_WEBHOOK_URL, { method: "POST", body: payload });
-        if (!res.ok) throw new Error("Request failed");
+      if (!MAKE_WEBHOOK_URL) {
+        // Never tell a builder their plans arrived when nothing was sent.
+        throw new Error("Webhook not configured");
       }
+
+      const payload = new FormData();
+      Object.entries(parsed.data).forEach(([k, v]) => payload.append(k, String(v ?? "")));
+
+      // Legacy keys so the existing Make -> Google Sheets mapping keeps filling.
+      payload.append("name", parsed.data.builder);
+      payload.append("company", parsed.data.builder);
+      payload.append("message", parsed.data.notes ?? "");
+      payload.append("submitted_at", new Date().toISOString());
+      payload.append("source", "website");
+      payload.append("file_count", String(files.length));
+
+      files.forEach((f, i) => payload.append(`plan_${i + 1}`, f, f.name));
+
+      const res = await fetch(MAKE_WEBHOOK_URL, { method: "POST", body: payload });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+
       toast.success("Plans received", {
         description: "You'll have a written quote back within 24 hours.",
       });
