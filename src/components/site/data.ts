@@ -1,11 +1,14 @@
-import dayA from "@/assets/5EM-sample-daytime-exterior_1.jpg.asset.json";
-import twilightA from "@/assets/5EM-sample-twilight-exterior_1.jpg.asset.json";
-import dayB from "@/assets/render-daytime-exterior.jpg.asset.json";
-import twilightB from "@/assets/render-twilight-exterior.jpg.asset.json";
-import twilightC from "@/assets/twilight-2.jpg.asset.json";
-import planA from "@/assets/floorplan-3d.jpg.asset.json";
-import planB from "@/assets/floorplan-2.jpg.asset.json";
-import blueprint from "@/assets/blueprint-elevation.jpg.asset.json";
+// Images live in public/ and are served directly. Do not swap these back to
+// @/assets/*.asset.json imports — those point at Lovable's own servers and
+// resolve to 404 anywhere else.
+const dayA = { url: "/img/5EM-sample-daytime-exterior_1.jpg" };
+const twilightA = { url: "/img/5EM-sample-twilight-exterior_1.jpg" };
+const dayB = { url: "/img/render-daytime-exterior.jpg" };
+const twilightB = { url: "/img/render-twilight-exterior.jpg" };
+const twilightC = { url: "/img/twilight-2.jpg" };
+const planA = { url: "/img/floorplan-3d.jpg" };
+const planB = { url: "/img/floorplan-2.jpg" };
+const blueprint = { url: "/img/blueprint-elevation.jpg" };
 
 export const blueprintUrl = blueprint.url;
 export const heroRenderUrl = twilightA.url;
