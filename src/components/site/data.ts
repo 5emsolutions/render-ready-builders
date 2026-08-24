@@ -26,7 +26,7 @@ export const works: Work[] = [
     title: "Twilight elevation",
     meta: "Spec plan set A",
     category: "twilight",
-    span: "md:col-span-2 md:row-span-2",
+    span: "md:col-span-2 md:row-span-3",
   },
   {
     url: dayA.url,
