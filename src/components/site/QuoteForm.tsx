@@ -70,7 +70,7 @@ export function QuoteForm({ onDone }: { onDone?: () => void }) {
       onDone?.();
     } catch {
       toast.error("Something went wrong", {
-        description: "Email plans directly to hello@5emsolutions.com and we'll pick it up.",
+        description: "Email plans directly to paul@5emsolutions.com and we'll pick it up.",
       });
     } finally {
       setSubmitting(false);

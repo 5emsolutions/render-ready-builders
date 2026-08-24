@@ -204,11 +204,11 @@ function Index() {
             </p>
           </div>
           <div className="grid gap-3 text-sm text-muted-foreground">
-            <a className="flex items-center gap-2 transition-colors hover:text-foreground" href="mailto:hello@5emsolutions.com">
-              <Mail className="h-4 w-4" /> hello@5emsolutions.com
+            <a className="flex items-center gap-2 transition-colors hover:text-foreground" href="mailto:paul@5emsolutions.com">
+              <Mail className="h-4 w-4" /> paul@5emsolutions.com
             </a>
-            <a className="flex items-center gap-2 transition-colors hover:text-foreground" href="tel:+12525550142">
-              <Phone className="h-4 w-4" /> (252) 555-0142
+            <a className="flex items-center gap-2 transition-colors hover:text-foreground" href="tel:+19197502615">
+              <Phone className="h-4 w-4" /> 919-750-2615
             </a>
             <p className="flex items-center gap-2">
               <MapPin className="h-4 w-4" /> Greenville, North Carolina
@@ -219,7 +219,7 @@ function Index() {
           <p>© {new Date().getFullYear()} 5EM Solutions. All rights reserved.</p>
           <div className="flex gap-6">
             <a className="transition-colors hover:text-foreground" href="/privacy">Privacy Policy</a>
-            <a className="transition-colors hover:text-foreground" href="mailto:hello@5emsolutions.com">Contact</a>
+            <a className="transition-colors hover:text-foreground" href="mailto:paul@5emsolutions.com">Contact</a>
           </div>
         </div>
       </footer>
