@@ -45,7 +45,7 @@ export const works: Work[] = [
   {
     url: dayB.url,
     title: "Daytime three-quarter view",
-    meta: "Custom build, Greenville NC",
+    meta: "Sample plan set B",
     category: "daytime",
     span: "md:col-span-2",
   },
@@ -59,7 +59,7 @@ export const works: Work[] = [
   {
     url: twilightB.url,
     title: "Dusk three-quarter view",
-    meta: "Custom build, Greenville NC",
+    meta: "Sample plan set B",
     category: "twilight",
     span: "md:col-span-2",
   },
